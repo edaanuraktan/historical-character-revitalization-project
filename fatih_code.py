@@ -53,7 +53,7 @@ for file_path in text_files:
 # Sesleri birleştirip kaydetmek için
 if combined_audio:
     final_audio = np.concatenate(combined_audio)
-    output_path = "audio/fatih_voice2.wav"
+    output_path = "audio/fatih_voice.wav"
     write(output_path, sample_rate, final_audio.astype(np.float32))
     print(f"✅ Birleştirilmiş ses kaydedildi: {output_path}")
 else:

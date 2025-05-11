@@ -22,8 +22,8 @@ speaker_wav_path = "audio/fatih_sample.wav"
 
 # Kullanılacak metin dosyaları
 text_files = [
-    "texts/fatih_text1.txt",
-    "texts/fatih_text2.txt"
+    "text/fatih_text1.txt",
+    "text/fatih_text2.txt"
 ]
 
 # Tüm sesleri birleştirmek için liste

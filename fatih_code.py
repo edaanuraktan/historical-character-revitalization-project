@@ -22,13 +22,8 @@ speaker_wav_path = "audio/fatih_sample.wav"
 
 # Kullanılacak metin dosyaları
 text_files = [
-    "text/fatih_text1.txt",
-    "text/fatih_text2.txt",
-    "text/fatih_text3.txt",
-    "text/fatih_text4.txt",
-    "text/fatih_text5.txt",
-    "text/fatih_text6.txt",
-    "text/fatih_text7.txt"
+    "texts/fatih_text1.txt",
+    "texts/fatih_text2.txt"
 ]
 
 # Tüm sesleri birleştirmek için liste
@@ -37,7 +32,7 @@ combined_audio = []
 # Sampling rate (XTTS için önerilen)
 sample_rate = 24000
 
-# Her metni işleyip sesi oluşturacağız
+# Metinleri işleyip sesi oluşturacağız
 for file_path in text_files:
     if not os.path.exists(file_path):
         print(f"❌ Dosya bulunamadı: {file_path}")
@@ -58,7 +53,7 @@ for file_path in text_files:
 # Sesleri birleştirip kaydetmek için
 if combined_audio:
     final_audio = np.concatenate(combined_audio)
-    output_path = "audio/fatih_voice.wav"
+    output_path = "audio/fatih_voice2.wav"
     write(output_path, sample_rate, final_audio.astype(np.float32))
     print(f"✅ Birleştirilmiş ses kaydedildi: {output_path}")
 else:

@@ -1,20 +1,10 @@
 import os
 import numpy as np
 from scipy.io.wavfile import write
-import torch
-
 from TTS.api import TTS
 
-# Gerekli konfigürasyon sınıflarını içe aktaracağız
-from TTS.tts.configs.xtts_config import XttsConfig, XttsArgs
-from TTS.tts.models.xtts import XttsAudioConfig
-from TTS.config.shared_configs import BaseDatasetConfig
-
-from torch.serialization import safe_globals
-
-# Tüm gerekli sınıfları güvenli hale getiriyoruz
-with safe_globals([XttsConfig, XttsAudioConfig, BaseDatasetConfig, XttsArgs]):
-    tts = TTS(model_name="tts_models/multilingual/multi-dataset/xtts_v2", gpu=False)
+# XTTS modeli yükleniyor
+tts = TTS(model_name="tts_models/multilingual/multi-dataset/xtts_v2", gpu=False)
 
 
 # Ses örneği dosyası
@@ -53,7 +43,7 @@ for file_path in text_files:
 # Sesleri birleştirip kaydetmek için
 if combined_audio:
     final_audio = np.concatenate(combined_audio)
-    output_path = "audio/fatih_voice.wav"
+    output_path = "audio/fatih_voice2.wav"
     write(output_path, sample_rate, final_audio.astype(np.float32))
     print(f"✅ Birleştirilmiş ses kaydedildi: {output_path}")
 else:
